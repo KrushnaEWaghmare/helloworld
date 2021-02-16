@@ -1,0 +1,43 @@
+{% extends 'base.html' %}
+{%load static %}
+{% block content %}
+
+<head>
+  <link rel="stylesheet" href="{% static 'css/style.css' %}">
+</head>
+
+<section id="listings" class="py-4">
+    <div class="container-fluid">
+      <div class="row">
+        {% if driversList %}
+          {% for driver in driversList %}
+              <div class="col-md-6 col-lg-4 mb-4">
+                <div class="card listing-preview">
+                  <img class="card-img-top" src="{{ driver.photo.url}}" alt="" height="250" width="250">
+	                  
+                	<div class="card-body">
+		                    <div class="listing-heading text-center">
+		                      <h4 class="text-primary">{{ driver.name}}</h4>
+		                      <p>
+		                        <u><i class="text-secondary"></i> {{ driver.email}}
+		                      </p>
+		                      <p>
+		                        <i class="text-secondary"></i> {{ driver.phone}}
+		                      </p></u>
+		                    </div>
+                   	 <hr>
+                	 </div>
+                 </div>
+              </div>
+          {% endfor %}
+        {% else %}
+          <div class="col-md-12">
+            <p>No driver listings available</p>
+          </div>
+        {% endif %}
+                                     
+      </div>
+  </div>
+ </section>
+
+{% endblock %}

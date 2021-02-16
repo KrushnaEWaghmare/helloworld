@@ -1,0 +1,48 @@
+{% extends "base.html" %}
+{% load static %}
+{% block content %}
+
+
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<head>
+  <!--<link rel="stylesheet" href="{% static 'css/style.css' %}">-->
+    
+  </head>
+
+</head>
+
+<body >  
+ 
+<form action="{% url 'mylogin' %}"   method='POST'>  
+  {% csrf_token %}
+  
+    <div class="container">  
+      <center><h3>Login Here</h3></center>
+       <hr>  
+
+    <label>Username:</label>
+    <input type="text" class="form-control" name="username" id="username" required>
+
+  <br>
+  
+  <label for="password">Password</label>  
+  <input type="password"  class="form-control" name="password" id="password" required>  
+  <br>
+  
+  <center>
+  <button type="submit" class="btn btn-success btn-lg btn-block">Login</button>    
+  <button type="reset" class="btn btn-danger btn-lg btn-block">Clear</button><br>
+
+    <span class="psw">Forgot <a href="#">password?</a></span>
+ </div>
+</form>
+
+</center>
+</div></form>
+</body>
+</html>
+
+{%endblock%}
